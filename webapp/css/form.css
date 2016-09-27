@@ -1,0 +1,138 @@
+/*
+ * Query form style.
+ */
+
+#query_box {
+    /* max-width: 800px; */
+    margin: 0 20px;
+}
+
+
+#query_box table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+#query_box td {
+    border-bottom: 1px solid #ccc;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#bottom-bar {
+    position: fixed; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 10px;
+    height: 48px;
+    text-align: center;
+    z-index: 10;
+    background: white;
+    border-top: 1px solid black;
+}
+
+#minimize_button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 11;
+}
+
+col.param-show {
+    width: 30px;
+}
+col.param-name {
+    width: 200px;
+}
+
+tr.attr.highlight {
+    background: #ffa;
+}
+
+td.attr_name { font-size: 14px }
+
+td.attr_controller {
+    height: 30px;
+}
+
+.numeric_attr td.attr_controller input {
+    float: left;
+    width: 40px;
+    font-size: 12px;
+}
+.slider {
+    float: left;
+    width: 300px;
+    margin: 0 20px;
+    margin-top: 5px;
+}
+.unit {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.ui-slider-range {
+    background: #ddd;
+}
+
+td.attr_controller label {
+    font-size: 12px;
+}
+
+.textfield {
+    width: 300px;
+}
+
+#param-farg td.attr_controller label {
+    min-width: 75px;
+}
+#param-lanId td.attr_controller label {
+    min-width: 150px;
+}
+
+div.param-group-button {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#search_button {
+    font-size: 14px;
+    border: 2px solid #777;
+    height: 40px;
+    margin-right: 50px;
+}
+
+#show_in_column {
+    float:left;
+    left:0px;
+}
+
+.location-div {
+    float: inherit;
+    width: 600px;
+    font-size: 12px;
+}
+
+.organisationsNamn {
+    font-size: 20px;
+}
+
+#selection-properties p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+#selection-properties p label {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+label.limit {
+    display: block;
+    margin-top: 15px;
+}

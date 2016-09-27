@@ -1,0 +1,8 @@
+AuthName "Tekniskt urval"
+AuthType Basic
+Require valid-user
+
+# Change this to a real auth system
+AuthBasicProvider anon
+Anonymous *
+Anonymous_MustGiveEmail Off

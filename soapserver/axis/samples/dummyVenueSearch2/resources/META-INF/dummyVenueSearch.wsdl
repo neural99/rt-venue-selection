@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	targetNamespace="http://kappa.service.pojo"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:tns="http://kappa.service.pojo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:xsd1="http://kappa.schema">
+	
+	<wsdl:types>
+		<xsd:schema
+		 targetNamespace="http://kappa.schema"
+         xmlns="http://www.w3.org/2001/XMLSchema">
+			<xsd:complexType name="venue">
+				<xsd:sequence>
+					<xsd:element name="name" type="xsd:string"/>
+					<xsd:element name="category" type="xsd:string"/>
+					<xsd:element name="lights" type="xsd:double"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+		
+		<xsd:schema
+			targetNamespace="http://kappa.service.pojo"
+			xmlns:ax22="http://kappa.schema">
+			<xsd:element name="search">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="category" nillable="true" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="colour" nillable="true" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="lights" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="searchResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:venue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="searchRequest">
+        <wsdl:part name="parameters" element="tns:search"/>
+    </wsdl:message>
+    <wsdl:message name="searchResponse">
+        <wsdl:part name="parameters" element="tns:searchResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="dummyVenueSearchPortType">
+        <wsdl:operation name="search">
+            <wsdl:input message="tns:searchRequest" wsaw:Action="urn:search"/>
+            <wsdl:output message="tns:searchResponse" wsaw:Action="urn:searchResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="dummyVenueSearchSoap11Binding" type="tns:dummyVenueSearchPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="search">
+            <soap:operation soapAction="urn:search" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="dummyVenueSearchSoap12Binding" type="tns:dummyVenueSearchPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="search">
+            <soap12:operation soapAction="urn:search" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="dummyVenueSearchHttpBinding" type="tns:dummyVenueSearchPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="search">
+            <http:operation location="dummyVenueSearch/search"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="search"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="search"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="dummyVenueSearch">
+        <wsdl:port name="dummyVenueSearchHttpSoap11Endpoint" binding="tns:dummyVenueSearchSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/dummyVenueSearch.dummyVenueSearchHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="dummyVenueSearchHttpSoap12Endpoint" binding="tns:dummyVenueSearchSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/dummyVenueSearch.dummyVenueSearchHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="dummyVenueSearchHttpEndpoint" binding="tns:dummyVenueSearchHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/dummyVenueSearch.dummyVenueSearchHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>	
+		
+				
+	

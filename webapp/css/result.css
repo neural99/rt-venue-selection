@@ -1,0 +1,73 @@
+/*
+ * Style for results.
+ */
+
+#result .throbber {
+    display: block;
+    margin: 30px auto;
+}
+#hits {
+    text-align: center;
+    font-size: 14px;
+    padding-top: 5px;
+}
+table.result {
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+th {
+    cursor: pointer;
+}
+th.ui-icon {
+    display: inline-block;
+}
+tr.even {
+    background-color: #eef;
+}
+tr.odd {
+    background-color: #ccf;
+}
+tr.orglist {
+    background-color: #ffffff;
+}
+
+table.result th.data {
+    text-align: left;
+    padding-bottom: 3px;
+}
+table.result td.data, table.result th.data {
+    min-width: 100px;
+    padding-right: 20px;
+}
+table.result td.data {
+    height: 23px;
+}
+table.result a {
+    color: black;
+}
+
+table.result td.org-expander label {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+table.result td.org-expander .ui-icon {
+    left: 1px;
+    margin-top: -9px;
+}
+
+tr.orglist { display: none }
+
+td.orglist {
+    padding: 5px;
+}
+div.organisation {
+    padding: 10px 0;
+}
+div.organisation + div.organisation { border-top: 1px solid black }

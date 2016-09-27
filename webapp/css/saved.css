@@ -1,0 +1,24 @@
+.saved_table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.saved_table col.prodnr { width: 80px }
+.saved_table col.owner { width: 80px }
+.saved_table col.updated { width: 90px }
+
+.saved_table th {
+    text-align: left;
+}
+.saved_table tbody {
+    background: white;
+}
+.saved_table tbody td {
+    padding: 3px;
+    border-top: 1px dotted rgb(174,208,234);
+}
+
+.saved_table tr.selected {
+    background: rgb(174,208,234);
+    font-weight: bold;
+}
